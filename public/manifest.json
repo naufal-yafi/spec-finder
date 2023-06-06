@@ -1,0 +1,32 @@
+{
+    "lang": "id",
+    "dir": "ltr",
+    "name": "Spec Finder: Temukan Hardware yang Tepat untuk Kebutuhan Anda dengan Mudah dan Cepat",
+    "short_name": "Spec Finder",
+    "description": "Temukan hardware komputer yang sesuai dengan kebutuhan Anda di situs kami! Dari prosesor hingga kartu grafis, kami menawarkan pilihan produk berkualitas dari merek terkemuka. Cari dan bandingkan harga, spesifikasi, dan ulasan pengguna untuk menemukan komponen terbaik untuk sistem Anda.",
+    "icons": [
+      {
+        "src": "favicon.ico",
+        "sizes": "64x64 32x32 24x24 16x16",
+        "type": "image/x-icon",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "orientation": "landscape",
+    "theme_color": "#FEFEFE",
+    "background_color": "#FFFFFF"
+  }
