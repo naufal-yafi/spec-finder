@@ -3,14 +3,14 @@
         <div class="row no-gutters">
             <div class="col-md-4">
                 <div class="border-right" style="font-size: .7rem; color: green;">
-                    <img src="{{ $product->image }}" class="card-img"
+                    <img src="{{ url('/assets/mouse-blake-x17.webp') }}" class="card-img"
                         alt="{{ $product->category->slug . '-' . $product->slug . '.specfinder' }}">
                 </div>
             </div>
 
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title fs-5 fw-bold">{{ $product->title }}</h5>
+                    <h5 class="card-title fs-5 fw-bold mb-2">{{ $product->title }}</h5>
 
                     <div class="row justify-content-start g-2">
                         <p class="col-auto text-dark mb-1">
@@ -30,18 +30,53 @@
                         </p>
                     </div>
 
-                    <p class="card-text mt-1">
-                        <span class="fw-bold text-success" style="font-size: .9rem;">
-                            Rp
-                        </span>
-                        <span class="fw-bold text-success fs-3">
-                            {{ number_format($product->price, 0, ',', '.') }}
-                        </span>
+                    <p class="card-text mt-1 d-flex justify-content-start">
+                        @if ($product->promo != 0)
+                            <span class="d-flex flex-column">
+                                <span class="fw-bold text-success">
+                                    <span style="font-size: .7rem;">
+                                        Rp
+                                    </span>
+                                    @php
+                                        $diskon = $product->price * ($product->promo / 100);
+                                    @endphp
+                                    <span class="fs-3">
+                                        {{ number_format($product->price - $diskon, 0, ',', '.') }}
+                                    </span>
+                                </span>
+
+                                <span class="mt-2 mb-3">
+                                    <span class="me-2 fw-bold rounded p-2"
+                                        style="background: #d1e7dd; color: #198754; font-size: .8rem">{{ $product->promo }}%</span>
+                                    <span class="fw-bold text-secondary text-decoration-line-through"
+                                        style="font-size: .9rem">
+                                        Rp{{ number_format($product->price, 0, ',', '.') }}
+                                    </span>
+                                </span>
+                            </span>
+                        @else
+                            <span class="fw-bold text-success">
+                                <span style="font-size: .7rem;">
+                                    Rp
+                                </span>
+                                <span class="fs-3">
+                                    {{ number_format($product->price, 0, ',', '.') }}
+                                </span>
+                            </span>
+                            <span class="fw-bold text-white">
+                                <span style="font-size: .5rem;">
+                                    .
+                                </span>
+                                <span class="text-decoration-line-through" style="font-size: .7rem">
+                                    .
+                                </span>
+                            </span>
+                        @endif
                     </p>
 
                     <p class="card-text">
                         <a href="{{ $product->link }}" target="_blank">
-                            <button class="btn btn-success px-4">
+                            <button class="btn btn-success px-4 w-100 py-2">
                                 Beli Sekarang
                             </button>
                         </a>
