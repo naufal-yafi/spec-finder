@@ -22,7 +22,7 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ $back }}">Semua Kategori</a></li>
+                            <li><a class="dropdown-item" href="/product/category">Semua Kategori</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

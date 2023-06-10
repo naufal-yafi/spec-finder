@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -20,21 +21,50 @@ Route::get('/', [ProductController::class, 'index']);
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/detail/{product:slug}', [ProductController::class, 'detail']);
 
-Route::get('/product/category/{slug}', function ($slug) {
-  return $slug;
+Route::get('/product/category/{category:slug}', function (Category $category) {
+  return view('slugView', [
+    'title' => 'Kategori Produk ' . $category->name . ' | SpecFinder',
+    'back' => '/',
+    'products' => $category->product,
+    'label' => 'Kategori',
+    'slug' => true,
+    'name' => $category->name,
+    'listCategory' => Category::all(),
+    'listBrand' => Brand::all()
+  ]);
 });
 
 Route::get('/product/category', function () {
-  return view('category', [
-    'title' => 'Kategori untuk Semua Produk | SpecFinder',
-    'back' => '/product',
-    'categories' => Category::all()
+  return view('slugView', [
+    'title' => 'Kategori | SpecFinder',
+    'back' => '/',
+    'products' => Product::inRandomOrder()->get(),
+    'label' => 'Kategori',
+    'slug' => false,
+    'name' => 'Semua',
+    'listCategory' => Category::all(),
+    'listBrand' => Brand::all()
+  ]);
+});
+
+Route::get('/product/brand', function () {
+  return view('slugView', [
+    'title' => 'Kategori | SpecFinder',
+    'back' => '/',
+    'products' => Product::inRandomOrder()->get(),
+    'label' => 'Brand',
+    'slug' => false,
+    'name' => 'Semua',
+    'listCategory' => Category::all(),
+    'listBrand' => Brand::all()
   ]);
 });
 
 Route::get('/about-us', function () {
   return view('aboutUs', [
     'title' => 'Tentang Kami | SpecFinder',
-    'back' => '/'
+    'back' => '/',
+    'listCategory' => Category::all(),
+    'listBrand' => Brand::all()
   ]);
 });
