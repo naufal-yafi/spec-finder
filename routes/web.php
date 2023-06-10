@@ -19,6 +19,13 @@ Route::get('/', [ProductController::class, 'index']);
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/{product:slug}', [ProductController::class, 'detail']);
 
-Route::get('product/category/{slug}', function ($slug) {
+Route::get('/product/category/{slug}', function ($slug) {
   return $slug;
+});
+
+Route::get('/about-us', function () {
+  return view('aboutUs', [
+    'title' => 'Tentang Kami | SpecFinder',
+    'back' => '/'
+  ]);
 });

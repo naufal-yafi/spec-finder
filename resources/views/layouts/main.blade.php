@@ -36,7 +36,11 @@
 </head>
 
 <body>
+    @include('components.navbar')
+
     @yield('app')
+
+    @include('layouts.footer')
 </body>
 
 </html>

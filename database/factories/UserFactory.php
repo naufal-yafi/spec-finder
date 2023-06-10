@@ -14,11 +14,17 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $username = $this->faker->unique()->name();
+        $slug = str_replace(' ', '.', strtolower($username));
+        $email = $slug . '@gmail.com';
+
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'username' => $username,
+            'slug' => $slug,
+            'email' => $email,
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => $this->faker->password(),
+            'is_admin' => 1,
             'remember_token' => Str::random(10),
         ];
     }
