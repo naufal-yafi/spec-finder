@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('app')
-    <div class="container" style="padding: 0 8rem;">
+    <div class="container" style="padding: 0 9%;">
         <div class="card px-3 py-2">
             <span class="mt-4">
                 <h1 class="fs-5 fw-bold">{{ $label }}: {{ $name }}</h1>

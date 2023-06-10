@@ -4,7 +4,7 @@
     @include('components.cardDetailProduct')
 
     <section class="mt-3 container">
-        <span class="d-flex flex-row justify-content-between" style="padding: 0 7.5rem">
+        <span class="d-flex flex-row justify-content-between" style="padding: 0 9%">
             <p class="text-dark fw-bold">Rekomendasi {{ $product->category->name }} Lainnya</p>
 
             <a href="/product/category/{{ $product->category->slug }}" class="fw-bold text-decoration-none text-success">Lihat
@@ -19,7 +19,7 @@
     </section>
 
     <section class="mt-3 container">
-        <span class="d-flex flex-row justify-content-between" style="padding: 0 7.5rem; margin-top: 3rem">
+        <span class="d-flex flex-row justify-content-between" style="padding: 0 9%; margin-top: 3rem">
             <p class="text-dark fw-bold">Produk Lainnya Dari {{ $product->brand->name }}</p>
 
             <a href="/product/brand/{{ $product->brand->slug }}" class="fw-bold text-decoration-none text-success">Lihat
@@ -34,7 +34,7 @@
     </section>
 
     <section class="mt-3 container">
-        <span class="d-flex flex-row justify-content-between" style="padding: 0 7.5rem; margin-top: 3rem">
+        <span class="d-flex flex-row justify-content-between" style="padding: 0 9%; margin-top: 3rem">
             <p class="text-dark fw-bold">Rekomendasi Lainnya Dari {{ $product->user->username }}</p>
 
             <a href="/product/user/{{ $product->user->slug }}" class="fw-bold text-decoration-none text-success">Lihat
@@ -49,7 +49,7 @@
     </section>
 
     <section class="mt-3 container">
-        <span class="d-flex flex-row justify-content-between" style="padding: 0 7.5rem; margin-top: 3rem">
+        <span class="d-flex flex-row justify-content-between" style="padding: 0 9%; margin-top: 3rem">
             <p class="text-dark fw-bold">Rekomendasi Lainnya</p>
 
             <a href="/product" class="fw-bold text-decoration-none text-success">Lihat

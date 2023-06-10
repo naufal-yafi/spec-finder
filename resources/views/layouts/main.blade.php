@@ -36,6 +36,7 @@
 </head>
 
 <body>
+    @include('components.riseUp')
     @include('components.navbar')
 
     @yield('app')
