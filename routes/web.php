@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product/detail', [ProductController::class, 'index']);
 Route::get('/product/detail/{product:slug}', [ProductController::class, 'detail']);
 
 Route::get('/product/category/{category:slug}', function (Category $category) {
