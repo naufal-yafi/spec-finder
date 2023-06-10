@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('tags');
             $table->string('link');
             $table->integer('promo');
+            $table->timestamp('promo_duration');
             $table->foreignId('category_id');
             $table->foreignId('brand_id');
             $table->foreignId('user_id');

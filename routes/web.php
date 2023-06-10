@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +18,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/product', [ProductController::class, 'index']);
-Route::get('/product/{product:slug}', [ProductController::class, 'detail']);
+Route::get('/product/detail/{product:slug}', [ProductController::class, 'detail']);
 
 Route::get('/product/category/{slug}', function ($slug) {
   return $slug;
+});
+
+Route::get('/product/category', function () {
+  return view('category', [
+    'title' => 'Kategori untuk Semua Produk | SpecFinder',
+    'back' => '/product',
+    'categories' => Category::all()
+  ]);
 });
 
 Route::get('/about-us', function () {

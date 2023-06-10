@@ -14,6 +14,11 @@
 
                     <div class="row justify-content-start g-2">
                         <p class="col-auto text-dark mb-1">
+                            Merek
+                            <span class="text-secondary">(<a href="/product/brand/{{ $product->brand->slug }}"
+                                    class="text-secondary text-decoration-none">{{ $product->brand->name }}</a>)</span>
+                        </p>
+                        <p class="col-auto text-dark mb-1">
                             Kategori
                             <span class="text-secondary">(<a href="/product/category/{{ $product->category->slug }}"
                                     class="text-secondary text-decoration-none">{{ $product->category->name }}</a>)</span>
@@ -34,32 +39,12 @@
                         </span>
                     </p>
 
-                    <a href="{{ $product->link }}" target="_blank" class="btn btn-success px-4">
-                        Beli Sekarang
-                    </a>
-
                     <p class="card-text">
-                        {{-- brand --}}
-                        {{-- <a href="#">
-                          <button class="btn btn-light btn-sm">
-                              <img src="{{ url('brand-logo/' . $product['brand_logo']) }}" height="35px" alt="logo merek"
-                                  class="me-1">
-                          </button>
-                      </a> --}}
-                        {{-- brand --}}
-
-                        {{-- Likes --}}
-                        {{-- <a href="#">
-                          <button class="btn btn-danger ms-2" style="font-size: .7rem;">
-                              <img src="{{ url('icons/love.svg') }}" height="14px" alt="">
-    
-                              <span class="ms-1">
-                                  Disukai
-                                  {{ $product['likes'] >= 1000000 ? number_format($product['likes'] / 1000000, 1) . 'jt' : ($product['likes'] >= 1000 ? number_format($product['likes'] / 1000, 1) . 'rb' : $product['likes']) }}
-                              </span>
-                          </button>
-                      </a> --}}
-                        {{-- Likes --}}
+                        <a href="{{ $product->link }}" target="_blank">
+                            <button class="btn btn-success px-4">
+                                Beli Sekarang
+                            </button>
+                        </a>
                     </p>
 
                     <p class="card-text">
@@ -73,17 +58,11 @@
                         <p class="card-text full-description">{!! $product->description !!}</p>
 
                         <p class="card-text d-flex flex-wrap gap-1 mb-2">
-                            <a href="#">
-                                <button class="btn btn-secondary btn-sm rounded-pill"
-                                    style="font-size: .7rem">#{{ $product->category->slug }}</button>
-                            </a>
-                            {{-- <a href="#">
-                              <button class="btn btn-secondary btn-sm rounded-pill"
-                                  style="font-size: .7rem">#{{ strtolower($product['brand']) }}</button>
-                          </a> --}}
-                            @foreach (explode(',', $product['tags']) as $tag)
-                                <button class="btn btn-secondary btn-sm rounded-pill"
-                                    style="font-size: .7rem">#{{ strtolower($tag) }}</button>
+                            @foreach (explode(',', $product->tags) as $tag)
+                                <a href="/product/search?tag={{ $tag }}">
+                                    <button class="btn btn-secondary btn-sm rounded-pill"
+                                        style="font-size: .7rem">#{{ strtolower($tag) }}</button>
+                                </a>
                             @endforeach
                         </p>
                     </div>

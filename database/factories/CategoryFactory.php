@@ -13,10 +13,10 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->unique()->word();
+        $name = $this->faker->unique()->words(mt_rand(1, 3), true);
 
         return [
-            'name' => $name,
+            'name' => ucfirst($name),
             'slug' => str_replace(' ', '-', strtolower($name))
         ];
     }
