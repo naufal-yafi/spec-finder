@@ -42,17 +42,19 @@
             <div class="col-md-4">
                 <h5>Merek</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-decoration-none text-success">Fantech</a></li>
-                    <li><a href="#" class="text-decoration-none text-success">Logitech</a></li>
-                    <li><a href="#" class="text-decoration-none text-success">BenQ</a></li>
+                    @foreach ($listBrand as $brand)
+                        <li><a href="/product/brand/{{ $brand->slug }}"
+                                class="text-decoration-none text-success">{{ $brand->name }}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-md-4">
                 <h5>Kategori</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-decoration-none text-success">Mouse</a></li>
-                    <li><a href="#" class="text-decoration-none text-success">Keyboard</a></li>
-                    <li><a href="#" class="text-decoration-none text-success">Monitor</a></li>
+                    @foreach ($listCategory as $category)
+                        <li><a href="/product/category/{{ $category->slug }}"
+                                class="text-decoration-none text-success">{{ $category->name }}</a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>

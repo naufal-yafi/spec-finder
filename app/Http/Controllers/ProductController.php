@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -14,6 +15,8 @@ class ProductController extends Controller
         return view('home', [
             'title' => 'Temukan Hardware yang Tepat untuk Kebutuhan Anda dengan Mudah dan Cepat | SpecFinder',
             'products' => Product::inRandomOrder()->get(),
+            'listCategory' => Category::all(),
+            'listBrand' => Brand::all(),
             'back' => '/'
         ]);
     }
@@ -42,6 +45,8 @@ class ProductController extends Controller
             'title' =>  $product->category->name . ' ' . $product->title . ' - ' . $product->brand->name . ' | SpecFinder',
             'product' => $product,
             'products' => Product::all(),
+            'listCategory' => Category::all(),
+            'listBrand' => Brand::all(),
             'back' => '/product',
             'time' => $result
         ]);

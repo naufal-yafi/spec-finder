@@ -15,8 +15,22 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ $back }}">Beranda</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/product/category">Kategori</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Kategori
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ $back }}">Semua Kategori</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            @foreach ($listCategory as $category)
+                                <li><a class="dropdown-item"
+                                        href="/product/category/{{ $category->slug }}">{{ $category->name }}</a></li>
+                            @endforeach
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/product/brand">Merek</a>
