@@ -23,7 +23,7 @@ Route::get('/product/detail/{product:slug}', [ProductController::class, 'detail'
 
 Route::get('/product/category/{category:slug}', function (Category $category) {
   return view('slugView', [
-    'title' => 'Kategori Produk ' . $category->name . ' | SpecFinder',
+    'title' => 'Produk dari Kategori ' . $category->name . ' | SpecFinder',
     'back' => '/',
     'products' => $category->product,
     'label' => 'Kategori',
@@ -36,7 +36,7 @@ Route::get('/product/category/{category:slug}', function (Category $category) {
 
 Route::get('/product/category', function () {
   return view('slugView', [
-    'title' => 'Kategori | SpecFinder',
+    'title' => 'Produk Kategori | SpecFinder',
     'back' => '/',
     'products' => Product::inRandomOrder()->get(),
     'label' => 'Kategori',
@@ -49,12 +49,25 @@ Route::get('/product/category', function () {
 
 Route::get('/product/brand', function () {
   return view('slugView', [
-    'title' => 'Kategori | SpecFinder',
+    'title' => 'Produk Merek | SpecFinder',
     'back' => '/',
     'products' => Product::inRandomOrder()->get(),
     'label' => 'Brand',
     'slug' => false,
     'name' => 'Semua',
+    'listCategory' => Category::all(),
+    'listBrand' => Brand::all()
+  ]);
+});
+
+Route::get('/product/brand/{brand:slug}', function (Brand $brand) {
+  return view('slugView', [
+    'title' => 'Produk dari Merek ' . $brand->name . ' | SpecFinder',
+    'back' => '/',
+    'products' => $brand->product,
+    'label' => 'Brand',
+    'slug' => true,
+    'name' => $brand->name,
     'listCategory' => Category::all(),
     'listBrand' => Brand::all()
   ]);
