@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -17,6 +18,7 @@ class ProductController extends Controller
             'products' => Product::inRandomOrder()->get(),
             'listCategory' => Category::all(),
             'listBrand' => Brand::all(),
+            'listAuthor' => User::where('is_admin', 1)->get(),
             'back' => '/'
         ]);
     }
@@ -62,6 +64,7 @@ class ProductController extends Controller
             'products' => Product::whereNotIn('slug', [$product->slug])->inRandomOrder()->limit(9)->get(),
             'listCategory' => Category::all(),
             'listBrand' => Brand::all(),
+            'listAuthor' => User::where('is_admin', 1)->get(),
             'back' => '/product',
             'time' => $result
         ]);

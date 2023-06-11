@@ -8,7 +8,11 @@
                     <img src="{{ url('/assets/fantech.jpg') }}" height="130px" alt="{{ $brand->slug }}">
                 @endif
 
-                <span class="{{ $label != 'Brand' || !$slug ? 'ms-3 mt-3' : 'mt-2' }}">
+                @if ($slug && $label == 'Author')
+                    <img src="{{ url('/assets/fantech.jpg') }}" height="130px" alt="{{ $author->slug }}">
+                @endif
+
+                <span class="{{ $slug && $label != 'Kategori' ? 'mt-2' : 'ms-3 mt-3' }}">
                     <h1 class="fs-5 fw-bold">{{ $label }}: {{ $name }}</h1>
                     @if ($slug)
                         <p>Produk yang tersedia <span class="fw-bold text-secondary">({{ $products->count() }})</span></p>
@@ -31,6 +35,12 @@
                     @if ($slug && $label == 'Brand')
                         <a href="{{ $brand->link }}">
                             <button class="btn btn-success">Kunjungi Toko</button>
+                        </a>
+                    @endif
+
+                    @if ($slug && $label == 'Author')
+                        <a href="/author/profile/{{ $author->slug }}">
+                            <button class="btn btn-success">Lihat Profil</button>
                         </a>
                     @endif
                 </span>

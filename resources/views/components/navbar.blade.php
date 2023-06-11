@@ -49,6 +49,23 @@
                             @endforeach
                         </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Author
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/product/author">Semua Author</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            @foreach ($listAuthor as $author)
+                                <li><a class="dropdown-item"
+                                        href="/product/author/{{ $author->slug }}">{{ $author->username }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
 
                 <span class="navbar-text">

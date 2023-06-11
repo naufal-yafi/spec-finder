@@ -24,8 +24,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row justify-content-between">
+            <div class="col-md-2">
                 <h5>Informasi</h5>
                 <ul class="list-unstyled">
                     <li>
@@ -37,9 +37,11 @@
                     </li>
                     <li><a href="https://github.com/naufal-yafi/spec-finder/activity" target="_blank"
                             class="text-decoration-none text-success">Aktifitas</a></li>
+                    <li><a href="https://github.com/naufal-yafi/spec-finder/releases" target="_blank"
+                            class="text-decoration-none text-success">Path Note</a></li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <h5>Merek</h5>
                 <ul class="list-unstyled">
                     @foreach ($listBrand as $brand)
@@ -48,12 +50,21 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <h5>Kategori</h5>
                 <ul class="list-unstyled">
                     @foreach ($listCategory as $category)
                         <li><a href="/product/category/{{ $category->slug }}"
                                 class="text-decoration-none text-success">{{ $category->name }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h5>Author</h5>
+                <ul class="list-unstyled">
+                    @foreach ($listAuthor as $author)
+                        <li><a href="/product/author/{{ $author->slug }}"
+                                class="text-decoration-none text-success">{{ $author->username }}</a></li>
                     @endforeach
                 </ul>
             </div>
