@@ -56,9 +56,9 @@ class ProductController extends Controller
         return view('productDetail', [
             'title' =>  $product->category->name . ' ' . $product->title . ' - ' . $product->brand->name . ' | SpecFinder',
             'product' => $product,
-            'recommends_product_by_category' => $byCategory,
-            'recommends_product_by_brand' => $byBrand,
-            'recommends_product_by_user' => $byUser,
+            'recommends' => [$byCategory, $byBrand, $byUser],
+            'brand_info' => [$product->brand->name, $product->brand->slug],
+            'author_info' => [$product->user->username, $product->user->slug],
             'products' => Product::whereNotIn('slug', [$product->slug])->inRandomOrder()->limit(9)->get(),
             'listCategory' => Category::all(),
             'listBrand' => Brand::all(),

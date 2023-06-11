@@ -66,6 +66,7 @@ Route::get('/product/brand/{brand:slug}', function (Brand $brand) {
     'title' => 'Produk dari Merek ' . $brand->name . ' | SpecFinder',
     'back' => '/',
     'products' => $brand->product,
+    'brand' => $brand,
     'label' => 'Brand',
     'slug' => true,
     'name' => $brand->name,
