@@ -9,6 +9,7 @@
         left: 8px;
     }
 </style>
+
 @php
     $now = \Carbon\Carbon::now();
     $duration = \Carbon\Carbon::parse($product->promo_duration);
@@ -36,65 +37,71 @@
     
     $result = $year + $month;
 @endphp
-<a href="/product/detail/{{ $product->slug }}" class="text-decoration-none text-dark">
+
+@php
+    $productSlug = $product->slug;
+    $brandName = $product->brand->name;
+    $productTitle = $product->title;
+    $productPromo = $product->promo;
+    $productPrice = $product->price;
+    $conditionPromo = false;
+    
+    if ($productPromo != 0) {
+        if ($result != 0) {
+            $conditionPromo = true;
+        }
+    }
+@endphp
+
+<a href="/product/detail/{{ $productSlug }}" class="text-decoration-none text-dark">
     <div class="card" style="width: 18rem;">
         <div style="font-size: .7rem; color: green;">
             <img src="{{ url('/assets/mouse-blake-x17.webp') }}" class="card-img-top"
-                alt="{{ $product->category->slug . '-' . $product->slug . '.specfinder' }}">
-            @if ($product->promo != 0)
-                @if ($result != 0)
-                    <span class="me-2 fw-bold rounded p-2 position-absolute promo"
-                        style="background: #d1e7dd; color: #198754; font-size: .8rem">{{ $product->promo }}%</span>
-                @endif
-
+                alt="{{ $product->category->slug . '-' . $productSlug . '.specfinder' }}">
+            @if ($conditionPromo)
+                <span class="me-2 fw-bold rounded p-2 position-absolute promo"
+                    style="background: #d1e7dd; color: #198754; font-size: .8rem">{{ $productPromo }}%</span>
             @endif
         </div>
 
         <div class="card-body">
             <p class="card-text mb-2">
                 <img src="{{ url('/assets/fantech.jpg') }}" height="26px" alt="brand-logo" class="me-1">
-                {{ substr($product->brand->name, 0, 20) . (strlen($product->brand->name) > 20 ? '...' : '') }}
+                {{ substr($brandName, 0, 20) . (strlen($brandName) > 20 ? '...' : '') }}
             </p>
             <h5 class="card-title">
-                {{ substr($product->title, 0, 35) . (strlen($product->title) > 35 ? '...' : '') }}
+                {{ substr($productTitle, 0, 35) . (strlen($productTitle) > 35 ? '...' : '') }}
+                <span class="text-white">
+                    @if (strlen($productTitle) < 35)
+                        @php
+                            $minus = 35 - strlen($productTitle);
+                        @endphp
+                        @times($minus)
+                            .
+                        @endtimes
+                    @endif
+                </span>
             </h5>
             <p class="card-text mb-2 d-flex justify-content-start">
-                @if ($product->promo != 0)
-                    @if ($result != 0)
-                        <span class="d-flex flex-column">
-                            <span class="fw-bold text-secondary text-decoration-line-through" style="font-size: .7rem">
-                                <span>Rp.</span>
-                                {{ number_format($product->price, 0, ',', '.') }}
-                            </span>
+                @if ($conditionPromo)
+                    <span class="d-flex flex-column">
+                        <span class="fw-bold text-secondary text-decoration-line-through" style="font-size: .7rem">
+                            <span>Rp.</span>
+                            {{ number_format($productPrice, 0, ',', '.') }}
+                        </span>
 
-                            <span class="fw-bold text-success">
-                                <span style="font-size: .7rem;">
-                                    Rp
-                                </span>
-                                @php
-                                    $diskon = $product->price * ($product->promo / 100);
-                                @endphp
-                                <span class="fs-5">
-                                    {{ number_format($product->price - $diskon, 0, ',', '.') }}
-                                </span>
+                        <span class="fw-bold text-success">
+                            <span style="font-size: .7rem;">
+                                Rp
+                            </span>
+                            @php
+                                $diskon = $productPrice * ($productPromo / 100);
+                            @endphp
+                            <span class="fs-5">
+                                {{ number_format($productPrice - $diskon, 0, ',', '.') }}
                             </span>
                         </span>
-                    @else
-                        <span class="d-flex flex-column">
-                            <span class="fw-bold text-success">
-                                <span style="font-size: .7rem;">
-                                    Rp
-                                </span>
-                                <span class="fs-5">
-                                    {{ number_format($product->price, 0, ',', '.') }}
-                                </span>
-                            </span>
-                            <span class="fw-bold text-white text-decoration-line-through" style="font-size: .7rem">
-                                <span>.</span>
-                                .
-                            </span>
-                        </span>
-                    @endif
+                    </span>
                 @else
                     <span class="d-flex flex-column">
                         <span class="fw-bold text-success">
@@ -102,7 +109,7 @@
                                 Rp
                             </span>
                             <span class="fs-5">
-                                {{ number_format($product->price, 0, ',', '.') }}
+                                {{ number_format($productPrice, 0, ',', '.') }}
                             </span>
                         </span>
                         <span class="fw-bold text-white text-decoration-line-through" style="font-size: .7rem">

@@ -1,10 +1,14 @@
+@php
+    $categorySlug = $product->category->slug;
+@endphp
+
 <main class="container mt-4">
     <div class="card mb-5">
         <div class="row no-gutters">
             <div class="col-md-4">
                 <div class="border-right" style="font-size: .7rem; color: green;">
                     <img src="{{ url('/assets/mouse-blake-x17.webp') }}" class="card-img"
-                        alt="{{ $product->category->slug . '-' . $product->slug . '.specfinder' }}">
+                        alt="{{ $categorySlug . '-' . $product->slug . '.specfinder' }}">
                 </div>
             </div>
 
@@ -20,7 +24,7 @@
                         </p>
                         <p class="col-auto text-dark mb-1">
                             Kategori
-                            <span class="text-secondary">(<a href="/product/category/{{ $product->category->slug }}"
+                            <span class="text-secondary">(<a href="/product/category/{{ $categorySlug }}"
                                     class="text-secondary text-decoration-none">{{ $product->category->name }}</a>)</span>
                         </p>
                         <p class="col-auto text-dark mb-1">
@@ -108,7 +112,9 @@
                     </a>
 
                     <p class="mt-2">
-                        <small class="text-muted">Diposting oleh
+                        <small
+                            class="text-muted">{{ $product->created_at == $product->updated_at ? 'Diposting' : 'Diubah' }}
+                            oleh
                             <a href="/product/author/{{ $product->user->slug }}"
                                 class="fw-bold text-decoration-none text-secondary">
                                 ({{ $product->user->username }})

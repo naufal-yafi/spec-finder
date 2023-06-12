@@ -39,8 +39,10 @@ Route::get('/about-us', function () {
   return view('aboutUs', [
     'title' => 'Tentang Kami | SpecFinder',
     'back' => '/',
-    'listCategory' => Category::all(),
-    'listBrand' => Brand::all(),
-    'listAuthor' => User::all()
+    'list' => [
+      Category::all(),
+      Brand::all(),
+      User::where('is_admin', 1)->get()
+    ]
   ]);
 });

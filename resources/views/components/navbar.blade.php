@@ -26,7 +26,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            @foreach ($listCategory as $category)
+                            @foreach ($list[0] as $category)
                                 <li><a class="dropdown-item"
                                         href="/product/category/{{ $category->slug }}">{{ $category->name }}</a></li>
                             @endforeach
@@ -43,7 +43,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            @foreach ($listBrand as $brand)
+                            @foreach ($list[1] as $brand)
                                 <li><a class="dropdown-item"
                                         href="/product/brand/{{ $brand->slug }}">{{ $brand->name }}</a></li>
                             @endforeach
@@ -60,7 +60,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            @foreach ($listAuthor as $author)
+                            @foreach ($list[2] as $author)
                                 <li><a class="dropdown-item"
                                         href="/product/author/{{ $author->slug }}">{{ $author->username }}</a></li>
                             @endforeach

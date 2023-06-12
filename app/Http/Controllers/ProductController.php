@@ -11,28 +11,72 @@ use Carbon\Carbon;
 
 class ProductController extends Controller
 {
+    private static $list;
+    private $table = ['category', 'brand', 'user'];
+
+    public function __construct()
+    {
+        self::$list = [
+            Category::all(),
+            Brand::all(),
+            User::where('is_admin', 1)->get()
+        ];
+    }
+
     public function index()
     {
         return view('home', [
             'title' => 'Temukan Hardware yang Tepat untuk Kebutuhan Anda dengan Mudah dan Cepat | SpecFinder',
-            'products' => Product::inRandomOrder()->get(),
-            'listCategory' => Category::all(),
-            'listBrand' => Brand::all(),
-            'listAuthor' => User::where('is_admin', 1)->get(),
+            'products' => Product::with($this->table)->inRandomOrder()->get(),
+            'list' => self::$list,
             'back' => '/'
         ]);
     }
 
     public function detail(Product $product)
     {
+        $getDataProduct = $product->load('category', 'brand', 'user');
+        $brandName = $getDataProduct->brand->name;
+
+        return view('productDetail', [
+            'title' =>  $getDataProduct->category->name . ' ' . $getDataProduct->title . ' - ' . $brandName . ' | SpecFinder',
+            'product' => $getDataProduct,
+            'recommends' => [
+                $this->recommendBy('category', $getDataProduct->category->slug),
+                $this->recommendBy('brand', $getDataProduct->brand->slug),
+                $this->recommendBy('user', $getDataProduct->user->slug)
+            ],
+            'products' => Product::with($this->table)
+                ->whereNotIn('slug', [$getDataProduct->slug])
+                ->inRandomOrder()
+                ->limit(6)->get(),
+            'list' => self::$list,
+            'back' => '/product',
+            'time' => $this->formatTime($getDataProduct->created_at, $getDataProduct->updated_at)
+        ]);
+    }
+
+    private function recommendBy($relation, $value)
+    {
+        return Product::with($this->table)
+            ->whereHas($relation, function ($query) use ($value) {
+                $query->where('slug', $value);
+            })
+            ->inRandomOrder()
+            ->limit(6)
+            ->get();
+    }
+
+    private function formatTime($create, $update)
+    {
         $dateNow = Carbon::now();
         $getTime = '';
         $result = '';
 
-        if ($product->created_at == $product->updated_at) {
-            $getTime = $product->created_at;
+        if ($create == $update) {
+            $getTime = $create;
         } else {
-            $getTime = $product->updated_at;
+            $getTime = $update;
         }
 
         if ($getTime->isToday()) {
@@ -43,30 +87,6 @@ class ProductController extends Controller
             $result = $getTime->diffForHumans($dateNow) . ' hari yang lalu';
         }
 
-        $byCategory = Product::whereHas('category', function ($query) use ($product) {
-            $query->where('slug', $product->category->slug);
-        })->inRandomOrder()->limit(9)->get();
-
-        $byBrand = Product::whereHas('brand', function ($query) use ($product) {
-            $query->where('slug', $product->brand->slug);
-        })->inRandomOrder()->limit(9)->get();
-
-        $byUser = Product::whereHas('user', function ($query) use ($product) {
-            $query->where('username', $product->user->username);
-        })->inRandomOrder()->limit(9)->get();
-
-        return view('productDetail', [
-            'title' =>  $product->category->name . ' ' . $product->title . ' - ' . $product->brand->name . ' | SpecFinder',
-            'product' => $product,
-            'recommends' => [$byCategory, $byBrand, $byUser],
-            'brand_info' => [$product->brand->name, $product->brand->slug],
-            'author_info' => [$product->user->username, $product->user->slug],
-            'products' => Product::whereNotIn('slug', [$product->slug])->inRandomOrder()->limit(9)->get(),
-            'listCategory' => Category::all(),
-            'listBrand' => Brand::all(),
-            'listAuthor' => User::where('is_admin', 1)->get(),
-            'back' => '/product',
-            'time' => $result
-        ]);
+        return $result;
     }
 }

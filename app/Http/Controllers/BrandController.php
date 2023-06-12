@@ -10,34 +10,44 @@ use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
+    private static $list;
+    private $table = ['category', 'brand', 'user'];
+
+    public function __construct()
+    {
+        self::$list = [
+            Category::all(),
+            Brand::all(),
+            User::where('is_admin', 1)->get()
+        ];
+    }
+
     public function getBrand()
     {
         return view('slugView', [
-            'title' => 'Produk Merek | SpecFinder',
+            'title' => 'Semua Merek | SpecFinder',
             'back' => '/product',
-            'products' => Product::inRandomOrder()->get(),
+            'products' => Product::with($this->table)->inRandomOrder()->get(),
             'label' => 'Brand',
             'slug' => false,
             'name' => 'Semua',
-            'listCategory' => Category::all(),
-            'listBrand' => Brand::all(),
-            'listAuthor' => User::all()
+            'list' => self::$list
         ]);
     }
 
     public function getProductByBrand(Brand $brand)
     {
+        $brandName = $brand->name;
+
         return view('slugView', [
-            'title' => 'Produk dari Merek ' . $brand->name . ' | SpecFinder',
+            'title' => 'Produk dari Merek ' . $brandName . ' | SpecFinder',
             'back' => '/product',
             'products' => $brand->product,
             'brand' => $brand,
             'label' => 'Brand',
             'slug' => true,
-            'name' => $brand->name,
-            'listCategory' => Category::all(),
-            'listBrand' => Brand::all(),
-            'listAuthor' => User::all()
+            'name' => $brandName,
+            'list' => self::$list
         ]);
     }
 }
