@@ -24,14 +24,14 @@ class BrandController extends Controller
 
     public function getBrand()
     {
-        return view('slugView', [
+        return view('home', [
             'title' => 'Semua Merek | SpecFinder',
-            'back' => '/product',
             'products' => Product::with($this->table)->inRandomOrder()->get(),
             'label' => 'Brand',
             'slug' => false,
             'name' => 'Semua',
-            'list' => self::$list
+            'list' => self::$list,
+            'banner' => true
         ]);
     }
 
@@ -39,15 +39,15 @@ class BrandController extends Controller
     {
         $brandName = $brand->name;
 
-        return view('slugView', [
+        return view('home', [
             'title' => 'Produk dari Merek ' . $brandName . ' | SpecFinder',
-            'back' => '/product',
             'products' => $brand->product,
             'brand' => $brand,
             'label' => 'Brand',
             'slug' => true,
             'name' => $brandName,
-            'list' => self::$list
+            'list' => self::$list,
+            'banner' => true
         ]);
     }
 }

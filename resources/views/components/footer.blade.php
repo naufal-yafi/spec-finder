@@ -1,23 +1,18 @@
-<style>
-    li a:hover {
-        opacity: .7;
-    }
-</style>
-<footer class="bg-light pt-5 pb-3 mt-4">
+<footer class="bg-light pt-5 pb-3 mt-4" id="bottom">
     <div class="container">
-        <div class="d-flex flex-wrap justify-content-between mb-4 gap-3">
-            <a href="{{ $back }}">
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-between mb-4 gap-3">
+            <a href="/">
                 <img src="{{ url('logo-type.svg') }}" height="35px" alt="">
             </a>
 
-            <div class="">
+            <div class="text-center text-md-start">
                 <a href="/login">
-                    <button type="button" class="btn btn-outline-success fw-bold">
+                    <button type="button" class="btn btn-success fw-bold">
                         Masuk
                     </button>
                 </a>
                 <a href="/signup">
-                    <button type="button" class="btn btn-success">
+                    <button type="button" class="btn btn-outline-success">
                         Daftar
                     </button>
                 </a>
@@ -25,11 +20,12 @@
         </div>
 
         <div class="row justify-content-between">
-            <div class="col-md-2">
+            <div class="col-md-2 text-center text-md-start">
                 <h5>Informasi</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="/about-us" class="text-decoration-none text-success">Tentang Kami</a>
+                        <a href="https://github.com/naufal-yafi/spec-finder/wiki"
+                            class="text-decoration-none text-success">Wiki</a>
                     </li>
                     <li>
                         <a href="https://github.com/naufal-yafi/spec-finder/graphs/contributors" target="_blank"
@@ -41,41 +37,45 @@
                             class="text-decoration-none text-success">Versi Rilis</a></li>
                 </ul>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 text-center text-md-start">
                 <h5>Halaman</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="" target="_blank" class="text-decoration-none text-success">Beranda</a>
+                        <a href="/" class="text-decoration-none text-success">Beranda</a>
                     </li>
                     <li>
-                        <a href="" target="_blank" class="text-decoration-none text-success">Kategori</a>
+                        <a href="/product/category" class="text-decoration-none text-success">Kategori</a>
                     </li>
                     <li>
-                        <a href="" target="_blank" class="text-decoration-none text-success">Merek</a>
+                        <a href="/product/brand" class="text-decoration-none text-success">Merek</a>
                     </li>
                     <li>
-                        <a href="" target="_blank" class="text-decoration-none text-success">Author</a>
+                        <a href="/product/author" class="text-decoration-none text-success">Author</a>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 text-center text-md-start">
                 <h5>Dukungan</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="" target="_blank" class="text-decoration-none text-success">Bantuan</a>
+                        <a href="https://github.com/naufal-yafi/spec-finder/issues" target="_blank"
+                            class="text-decoration-none text-success">Masukan</a>
                     </li>
                     <li>
-                        <a href="" target="_blank" class="text-decoration-none text-success">Wiki</a>
+                        <a href="https://mail.google.com/mail/u/2/?ogbl#inbox?compose=CllgCJvpbfTzPshxlKhwCmwsxNXjrZJlDLhdGGKKcbFgPBBCmlnCqhGKRjSllKvCtQmSrXKrZWL"
+                            target="_blank" class="text-decoration-none text-success">Bantuan</a>
                     </li>
                     <li>
-                        <a href="" target="_blank" class="text-decoration-none text-success">Saran</a>
+                        <a href="https://mail.google.com/mail/u/2/?ogbl#inbox?compose=CllgCJvpbfTzPshxlKhwCmwsxNXjrZJlDLhdGGKKcbFgPBBCmlnCqhGKRjSllKvCtQmSrXKrZWL"
+                            target="_blank" class="text-decoration-none text-success">Saran</a>
                     </li>
                     <li>
-                        <a href="" target="_blank" class="text-decoration-none text-success">Laporkan Bug</a>
+                        <a href="https://mail.google.com/mail/u/2/?ogbl#inbox?compose=CllgCJvpbfTzPshxlKhwCmwsxNXjrZJlDLhdGGKKcbFgPBBCmlnCqhGKRjSllKvCtQmSrXKrZWL"
+                            target="_blank" class="text-decoration-none text-success">Laporkan Bug</a>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 text-center text-md-start">
                 <h5>Komunitas</h5>
                 <ul class="list-unstyled">
                     <li>

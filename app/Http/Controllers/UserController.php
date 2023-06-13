@@ -24,14 +24,14 @@ class UserController extends Controller
 
     public function getAuthor()
     {
-        return view('slugView', [
+        return view('home', [
             'title' => 'Semua Author | SpecFinder',
-            'back' => '/product',
             'products' => Product::with($this->table)->inRandomOrder()->get(),
             'label' => 'Author',
             'slug' => false,
             'name' => 'Semua',
-            'list' => self::$list
+            'list' => self::$list,
+            'banner' => true
         ]);
     }
 
@@ -39,15 +39,15 @@ class UserController extends Controller
     {
         $userName = $author->username;
 
-        return view('slugView', [
+        return view('home', [
             'title' => 'Author ' . $userName . ' | SpecFinder',
-            'back' => '/product',
             'products' => $author->product,
             'author' => $author,
             'label' => 'Author',
             'slug' => true,
             'name' => $userName,
-            'list' => self::$list
+            'list' => self::$list,
+            'banner' => true
         ]);
     }
 }

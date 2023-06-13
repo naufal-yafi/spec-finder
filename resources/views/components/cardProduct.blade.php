@@ -1,18 +1,8 @@
-<style>
-    .promo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 35px;
-        width: 50px;
-        top: 8px;
-        left: 8px;
-    }
-</style>
-
 @php
-    $now = \Carbon\Carbon::now();
-    $duration = \Carbon\Carbon::parse($product->promo_duration);
+    use Carbon\Carbon;
+    
+    $now = Carbon::now();
+    $duration = Carbon::parse($product->promo_duration);
     
     $year = 0;
     $month = 0;
@@ -59,8 +49,8 @@
             <img src="{{ url('/assets/mouse-blake-x17.webp') }}" class="card-img-top"
                 alt="{{ $product->category->slug . '-' . $productSlug . '.specfinder' }}">
             @if ($conditionPromo)
-                <span class="me-2 fw-bold rounded p-2 position-absolute promo"
-                    style="background: #d1e7dd; color: #198754; font-size: .8rem">{{ $productPromo }}%</span>
+                <span class="me-2 fw-bold rounded p-2 position-absolute d-flex justify-content-center align-items-center"
+                    style="background: #d1e7dd; color: #198754; font-size: .8rem; height: 35px; width: 50px; top: 8px; left: 8px;">{{ $productPromo }}%</span>
             @endif
         </div>
 

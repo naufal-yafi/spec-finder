@@ -24,14 +24,14 @@ class CategoryController extends Controller
 
     public function getCategory()
     {
-        return view('slugView', [
+        return view('home', [
             'title' => 'Semua Kategori | SpecFinder',
-            'back' => '/product',
             'products' => Product::with($this->table)->inRandomOrder()->get(),
             'label' => 'Kategori',
             'slug' => false,
             'name' => 'Semua',
-            'list' => self::$list
+            'list' => self::$list,
+            'banner' => true
         ]);
     }
 
@@ -39,14 +39,14 @@ class CategoryController extends Controller
     {
         $categoryName = $category->name;
 
-        return view('slugView', [
+        return view('home', [
             'title' => 'Kategori ' . $categoryName . ' | SpecFinder',
-            'back' => '/product',
             'products' => $category->product,
             'label' => 'Kategori',
             'slug' => true,
             'name' => $categoryName,
-            'list' => self::$list
+            'list' => self::$list,
+            'banner' => true
         ]);
     }
 }

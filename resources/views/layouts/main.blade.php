@@ -24,15 +24,11 @@
 
     <title>{{ $title }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    @include('config.conf_css')
 </head>
 
 <body>
@@ -41,7 +37,9 @@
 
     @yield('app')
 
-    @include('layouts.footer')
+    @include('components.footer')
+
+    @include('config.conf_js')
 </body>
 
 </html>

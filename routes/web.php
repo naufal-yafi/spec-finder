@@ -35,14 +35,10 @@ Route::get('/product/brand/{brand:slug}', [BrandController::class, 'getProductBy
 Route::get('/product/author', [UserController::class, 'getAuthor']);
 Route::get('/product/author/{author:slug}', [UserController::class, 'getProductByAuthor']);
 
-Route::get('/about-us', function () {
-  return view('aboutUs', [
-    'title' => 'Tentang Kami | SpecFinder',
-    'back' => '/',
-    'list' => [
-      Category::all(),
-      Brand::all(),
-      User::where('is_admin', 1)->get()
-    ]
-  ]);
+Route::get('/login', function () {
+  return view('errors.503');
+});
+
+Route::get('/signup', function () {
+  return view('errors.503');
 });

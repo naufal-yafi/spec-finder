@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
-            <a class="navbar-brand" href="{{ $back }}">
+            <a class="navbar-brand" href="/">
                 <img src="{{ url('logo-type.svg') }}" height="20px" alt="">
             </a>
 
@@ -13,7 +13,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ $back }}">Beranda</a>
+                        <a class="nav-link active" aria-current="page" href="/">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -70,12 +70,12 @@
 
                 <span class="navbar-text">
                     <a href="/login">
-                        <button type="button" class="btn btn-outline-success fw-bold">
+                        <button type="button" class="btn btn-success fw-bold">
                             Masuk
                         </button>
                     </a>
                     <a href="/signup">
-                        <button type="button" class="btn btn-success">
+                        <button type="button" class="btn btn-outline-success">
                             Daftar
                         </button>
                     </a>
