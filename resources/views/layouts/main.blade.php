@@ -35,6 +35,8 @@
     @include('components.riseUp')
     @include('components.navbar')
 
+    @include('components.searchBar')
+
     @yield('app')
 
     @include('components.footer')

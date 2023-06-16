@@ -34,6 +34,7 @@
     $productTitle = $product->title;
     $productPromo = $product->promo;
     $productPrice = $product->price;
+    $brandSlug = $product->brand->slug;
     $conditionPromo = false;
     
     if ($productPromo != 0) {
@@ -43,11 +44,11 @@
     }
 @endphp
 
-<a href="/product/detail/{{ $productSlug }}" class="text-decoration-none text-dark">
+<a href="/{{ $brandSlug }}/{{ $productSlug }}" class="text-decoration-none text-dark">
     <div class="card" style="width: 18rem;">
         <div style="font-size: .7rem; color: green;">
             <img src="{{ url('/assets/mouse-blake-x17.webp') }}" class="card-img-top"
-                alt="{{ $product->category->slug . '-' . $productSlug . '.specfinder' }}">
+                alt="{{ $brandSlug . '-' . $productSlug . '.specfinder' }}">
             @if ($conditionPromo)
                 <span class="me-2 fw-bold rounded p-2 position-absolute d-flex justify-content-center align-items-center"
                     style="background: #d1e7dd; color: #198754; font-size: .8rem; height: 35px; width: 50px; top: 8px; left: 8px;">{{ $productPromo }}%</span>

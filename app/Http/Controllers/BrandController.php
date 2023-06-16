@@ -41,11 +41,11 @@ class BrandController extends Controller
 
         return view('home', [
             'title' => 'Produk dari Merek ' . $brandName . ' | SpecFinder',
-            'products' => $brand->product,
-            'brand' => $brand,
+            'products' => $brand->product->load('user', 'category'),
             'label' => 'Brand',
-            'slug' => true,
-            'name' => $brandName,
+            'slug' => $brand->slug,
+            'link' => $brand->link,
+            'name' => $brand->name,
             'list' => self::$list,
             'banner' => true
         ]);

@@ -26,4 +26,13 @@
         .list-unstyled li a:hover {
             opacity: .7;
         }
+
+        #input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 78%;
+            border: 1px solid #ced4da;
+            border-radius: .6rem;
+        }
     </style>

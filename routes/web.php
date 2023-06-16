@@ -22,18 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ProductController::class, 'index']);
-Route::get('/product', [ProductController::class, 'index']);
-Route::get('/product/detail', [ProductController::class, 'index']);
-Route::get('/product/detail/{product:slug}', [ProductController::class, 'detail']);
-
-Route::get('/product/category', [CategoryController::class, 'getCategory']);
-Route::get('/product/category/{category:slug}', [CategoryController::class, 'getProductByCategory']);
-
-Route::get('/product/brand', [BrandController::class, 'getBrand']);
-Route::get('/product/brand/{brand:slug}', [BrandController::class, 'getProductByBrand']);
-
-Route::get('/product/author', [UserController::class, 'getAuthor']);
-Route::get('/product/author/{author:slug}', [UserController::class, 'getProductByAuthor']);
+Route::get('/search', [ProductController::class, 'index'])->middleware('empty.search');
 
 Route::get('/login', function () {
   return view('errors.503');
@@ -42,3 +31,6 @@ Route::get('/login', function () {
 Route::get('/signup', function () {
   return view('errors.503');
 });
+
+Route::get('/{brandSlug}/{product:slug}', [ProductController::class, 'detail']);
+Route::get('/{brand:slug}', [BrandController::class, 'getProductByBrand']);

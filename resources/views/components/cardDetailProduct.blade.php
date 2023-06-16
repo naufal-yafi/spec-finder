@@ -19,12 +19,12 @@
                     <div class="row justify-content-start g-2">
                         <p class="col-auto text-dark mb-1">
                             Merek
-                            <span class="text-secondary">(<a href="/product/brand/{{ $product->brand->slug }}"
+                            <span class="text-secondary">(<a href="/search?brand={{ $product->brand->slug }}"
                                     class="text-secondary text-decoration-none">{{ $product->brand->name }}</a>)</span>
                         </p>
                         <p class="col-auto text-dark mb-1">
                             Kategori
-                            <span class="text-secondary">(<a href="/product/category/{{ $categorySlug }}"
+                            <span class="text-secondary">(<a href="/search?category={{ $categorySlug }}"
                                     class="text-secondary text-decoration-none">{{ $product->category->name }}</a>)</span>
                         </p>
                         <p class="col-auto text-dark mb-1">
@@ -97,8 +97,8 @@
                         <p class="card-text full-description">{!! $product->description !!}</p>
 
                         <p class="card-text d-flex flex-wrap gap-1 mb-2">
-                            @foreach (explode(',', $product->tags) as $tag)
-                                <a href="/product/search?tag={{ $tag }}">
+                            @foreach (str_replace(' ', '', explode(',', $product->tags)) as $tag)
+                                <a href="/search?tag={{ $tag }}">
                                     <button class="btn btn-secondary btn-sm rounded-pill"
                                         style="font-size: .7rem">#{{ strtolower($tag) }}</button>
                                 </a>
@@ -115,7 +115,7 @@
                         <small
                             class="text-muted">{{ $product->created_at == $product->updated_at ? 'Diposting' : 'Diubah' }}
                             oleh
-                            <a href="/product/author/{{ $product->user->slug }}"
+                            <a href="/search?author={{ $product->user->slug }}"
                                 class="fw-bold text-decoration-none text-secondary">
                                 ({{ $product->user->username }})
                             </a>

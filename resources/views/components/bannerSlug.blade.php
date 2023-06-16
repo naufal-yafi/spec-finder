@@ -1,12 +1,12 @@
 @php
     $Label = [
-        'brand' => $label == 'Brand' ? true : false,
-        'author' => $label == 'Author' ? true : false,
+        'brand' => $label == 'Brand' ?? false,
+        'author' => $label == 'Author' ?? false,
     ];
     
     $Slug = [
-        'brand' => $slug && $Label['brand'] ? true : false,
-        'author' => $slug && $Label['author'] ? true : false,
+        'brand' => $slug && $Label['brand'] ?? false,
+        'author' => $slug && $Label['author'] ?? false,
     ];
     
     $class = $Slug['brand'] || $Slug['author'] ? 'mt-2' : 'ms-3 mt-3';
@@ -30,13 +30,7 @@
 <div class="container" style="padding: 0 9%;">
     <div class="card overflow-hidden">
         <div class="d-flex gap-4">
-            @if ($Slug['brand'])
-                <img src="{{ url('/assets/fantech.jpg') }}" height="130px" alt="{{ $brand->slug }}">
-            @endif
-
-            @if ($Slug['author'])
-                <img src="{{ url('/assets/fantech.jpg') }}" height="130px" alt="{{ $authorSlug }}">
-            @endif
+            <img src="{{ url('/assets/fantech.jpg') }}" height="130px" alt="{{ $slug }}">
 
             <span class="{{ $class }}">
                 <h1 class="fs-5 fw-bold">{{ $label }}: {{ $name }}</h1>
@@ -55,7 +49,7 @@
                     </p>
                 @endif
                 @if ($Slug['brand'])
-                    <a href="{{ $brand->link }}">
+                    <a href="{{ $link }}">
                         <button class="btn btn-success">Kunjungi Toko</button>
                     </a>
                 @endif

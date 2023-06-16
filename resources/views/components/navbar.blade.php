@@ -22,13 +22,14 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/product/category">Semua Kategori</a></li>
+                            <li><a class="dropdown-item" href="/">Semua Kategori</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             @foreach ($list[0] as $category)
                                 <li><a class="dropdown-item"
-                                        href="/product/category/{{ $category->slug }}">{{ $category->name }}</a></li>
+                                        href="/search?category={{ $category->slug }}">{{ $category->name }}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
@@ -39,13 +40,14 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/product/brand">Semua Merek</a></li>
+                            <li><a class="dropdown-item" href="/">Semua Merek</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             @foreach ($list[1] as $brand)
                                 <li><a class="dropdown-item"
-                                        href="/product/brand/{{ $brand->slug }}">{{ $brand->name }}</a></li>
+                                        href="/{{ $brand->slug }}?brand={{ $brand->slug }}">{{ $brand->name }}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
@@ -56,13 +58,14 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/product/author">Semua Author</a></li>
+                            <li><a class="dropdown-item" href="/">Semua Author</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             @foreach ($list[2] as $author)
                                 <li><a class="dropdown-item"
-                                        href="/product/author/{{ $author->slug }}">{{ $author->username }}</a></li>
+                                        href="/search?author={{ $author->slug }}">{{ $author->username }}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>

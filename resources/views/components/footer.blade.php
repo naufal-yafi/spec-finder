@@ -24,8 +24,8 @@
                 <h5>Informasi</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://github.com/naufal-yafi/spec-finder/wiki"
-                            class="text-decoration-none text-success">Wiki</a>
+                        <a href="https://github.com/naufal-yafi/spec-finder/wiki" target="_blank"
+                            class="text-decoration-none text-success">Tentang Kami</a>
                     </li>
                     <li>
                         <a href="https://github.com/naufal-yafi/spec-finder/graphs/contributors" target="_blank"
@@ -58,8 +58,8 @@
                 <h5>Dukungan</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://github.com/naufal-yafi/spec-finder/issues" target="_blank"
-                            class="text-decoration-none text-success">Masukan</a>
+                        <a href="https://github.com/naufal-yafi/spec-finder/wiki" target="_blank"
+                            class="text-decoration-none text-success">Wiki</a>
                     </li>
                     <li>
                         <a href="https://mail.google.com/mail/u/2/?ogbl#inbox?compose=CllgCJvpbfTzPshxlKhwCmwsxNXjrZJlDLhdGGKKcbFgPBBCmlnCqhGKRjSllKvCtQmSrXKrZWL"
