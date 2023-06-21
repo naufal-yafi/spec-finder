@@ -46,6 +46,7 @@ class BrandController extends Controller
             'slug' => $brand->slug,
             'link' => $brand->link,
             'name' => $brand->name,
+            'image' => $brand->image,
             'list' => self::$list,
             'banner' => true
         ]);

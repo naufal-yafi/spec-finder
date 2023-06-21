@@ -19,6 +19,34 @@
             </div>
         </div>
 
+        <div class="d-flex justify-content-md-end justify-content-center mb-5 flex-wrap" style="width: 100%;">
+            <div class="d-flex align-items-center gap-4 gap-md-2 me-2 mb-3 mb-md-0">
+                <a href="https://mail.google.com/mail/u/0/?hl=en#inbox?compose=CllgCJfmrDSLvbDzwSlZXHqnbbfqbXKVfkWMBnxHWvRjvVcmrxzNcqCgVcfSscKfXRJbnqtbdPg"
+                    target="_blank">
+                    <img src="{{ url('assets/icons/gmail.svg') }}" alt="icon gmail" class="icon-hover">
+                </a>
+
+                <a href="https://github.com/naufal-yafi/spec-finder" target="_blank">
+                    <img src="{{ url('assets/icons/github.svg') }}" alt="icon github" class="icon-hover">
+                </a>
+
+                <a href="" target="_blank">
+                    <img src="{{ url('assets/icons/discord.svg') }}" alt="icon discord" class="icon-hover">
+                </a>
+            </div>
+            <form action="/search" id="input-container" class="d-flex" role="search" style="width: 300px">
+                <input name="search" class="form-control outline-none border-0" type="text"
+                    placeholder="Cari hardware yang kamu butuhkan disini..." aria-label="Search"
+                    value="{{ request('search') }}">
+
+                <a href="#">
+                    <button class="btn btn-link" type="submit">
+                        <img src="{{ url('assets/icons/search.svg') }}" height="18px" alt="icon search">
+                    </button>
+                </a>
+            </form>
+        </div>
+
         <div class="row justify-content-between">
             <div class="col-md-2 text-center text-md-start">
                 <h5>Informasi</h5>
@@ -44,13 +72,13 @@
                         <a href="/" class="text-decoration-none text-success">Beranda</a>
                     </li>
                     <li>
-                        <a href="/product/category" class="text-decoration-none text-success">Kategori</a>
+                        <a href="/" class="text-decoration-none text-success">Kategori</a>
                     </li>
                     <li>
-                        <a href="/product/brand" class="text-decoration-none text-success">Merek</a>
+                        <a href="/" class="text-decoration-none text-success">Merek</a>
                     </li>
                     <li>
-                        <a href="/product/author" class="text-decoration-none text-success">Author</a>
+                        <a href="/" class="text-decoration-none text-success">Author</a>
                     </li>
                 </ul>
             </div>

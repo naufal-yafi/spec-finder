@@ -16,7 +16,7 @@ class ProductFactory extends Factory
         $generate = $this->faker->unique()->sentence(12);
 
         return [
-            'image' => $this->faker->imageUrl(640, 480, 'product', true),
+            'image' => 'assets/product_image.png',
             'title' => ucwords($generate),
             'slug' => str_replace(' ', '-', strtolower($generate)),
             'price' => $this->faker->numberBetween(99000, 45000000),

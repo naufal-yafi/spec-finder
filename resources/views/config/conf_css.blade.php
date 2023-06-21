@@ -35,4 +35,12 @@
             border: 1px solid #ced4da;
             border-radius: .6rem;
         }
+
+        .icon-hover {
+            opacity: .6;
+        }
+
+        .icon-hover:hover {
+            opacity: 1;
+        }
     </style>

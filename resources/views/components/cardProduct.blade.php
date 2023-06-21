@@ -47,7 +47,7 @@
 <a href="/{{ $brandSlug }}/{{ $productSlug }}" class="text-decoration-none text-dark">
     <div class="card" style="width: 18rem;">
         <div style="font-size: .7rem; color: green;">
-            <img src="{{ url('/assets/mouse-blake-x17.webp') }}" class="card-img-top"
+            <img src="{{ url($product->image) }}" class="card-img-top"
                 alt="{{ $brandSlug . '-' . $productSlug . '.specfinder' }}">
             @if ($conditionPromo)
                 <span class="me-2 fw-bold rounded p-2 position-absolute d-flex justify-content-center align-items-center"
@@ -57,7 +57,7 @@
 
         <div class="card-body">
             <p class="card-text mb-2">
-                <img src="{{ url('/assets/fantech.jpg') }}" height="26px" alt="brand-logo" class="me-1">
+                <img src="{{ url($product->brand->image) }}" height="26px" alt="brand-logo" class="me-1">
                 {{ substr($brandName, 0, 20) . (strlen($brandName) > 20 ? '...' : '') }}
             </p>
             <h5 class="card-title">

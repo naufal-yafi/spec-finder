@@ -7,7 +7,7 @@
         <div class="row no-gutters">
             <div class="col-md-4">
                 <div class="border-right" style="font-size: .7rem; color: green;">
-                    <img src="{{ url('/assets/mouse-blake-x17.webp') }}" class="card-img"
+                    <img src="{{ url($product->image) }}" class="card-img"
                         alt="{{ $categorySlug . '-' . $product->slug . '.specfinder' }}">
                 </div>
             </div>

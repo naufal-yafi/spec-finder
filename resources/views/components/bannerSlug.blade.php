@@ -30,7 +30,7 @@
 <div class="container" style="padding: 0 9%;">
     <div class="card overflow-hidden">
         <div class="d-flex gap-4">
-            <img src="{{ url('/assets/fantech.jpg') }}" height="130px" alt="{{ $slug }}">
+            <img src="{{ url($image) }}" height="130px" alt="{{ $slug }}">
 
             <span class="{{ $class }}">
                 <h1 class="fs-5 fw-bold">{{ $label }}: {{ $name }}</h1>
