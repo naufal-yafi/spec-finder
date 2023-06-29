@@ -1,12 +1,15 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="{{ url('logo-type.svg') }}" height="20px" alt="">
-            </a>
+            <div class="navbar-brand">
+                <a href="/" aria-label="goto home">
+                    <img src="{{ url('logo-type.svg') }}" width="120" height="20" alt="logo specfinder" title="home">
+                </a>
+            </div>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 

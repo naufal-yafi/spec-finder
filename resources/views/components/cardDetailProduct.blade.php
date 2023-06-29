@@ -8,7 +8,7 @@
             <div class="col-md-4">
                 <div class="border-right" style="font-size: .7rem; color: green;">
                     <img src="{{ url($product->image) }}" class="card-img"
-                        alt="{{ $categorySlug . '-' . $product->slug . '.specfinder' }}">
+                        alt="{{ $categorySlug . '-' . $product->slug . '.specfinder' }}" width="100%" height="100%">
                 </div>
             </div>
 

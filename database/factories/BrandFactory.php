@@ -16,7 +16,7 @@ class BrandFactory extends Factory
         $name = $this->faker->unique()->word();
 
         return [
-            'image' => 'assets/brand_image.png',
+            'image' => 'assets/brand_image-22-06-2023-11-37.png',
             'name' => ucfirst($name),
             'slug' => str_replace(' ', '-', strtolower($name)),
             'link' => $this->faker->url()

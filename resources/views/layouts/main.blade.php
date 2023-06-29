@@ -25,8 +25,11 @@
     <title>{{ $title }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Nunito" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    </noscript>
 
     @include('config.conf_css')
 </head>
@@ -38,6 +41,12 @@
     @include('components.searchBar')
 
     @yield('app')
+
+    @if ($paginate)
+        <div class="container mt-5 d-flex justify-content-center">
+            {{ $products->links() }}
+        </div>
+    @endif
 
     @include('components.footer')
 

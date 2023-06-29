@@ -27,9 +27,10 @@ class ProductController extends Controller
     {
         return view('home', [
             'title' => 'Temukan Hardware yang Tepat untuk Kebutuhan Anda dengan Mudah dan Cepat | SpecFinder',
-            'products' => Product::with($this->table)->search(request(['search', 'tag', 'category', 'brand', 'author']))->inRandomOrder()->get(),
+            'products' => Product::with($this->table)->search(request(['search', 'tag', 'category', 'brand', 'author']))->inRandomOrder()->paginate(12)->withQueryString(),
             'list' => self::$list,
-            'banner' => false
+            'banner' => false,
+            'paginate' => true
         ]);
     }
 
@@ -55,7 +56,8 @@ class ProductController extends Controller
                     ->limit(6)->get(),
                 'list' => self::$list,
                 'time' => $this->formatTime($getDataProduct->created_at, $getDataProduct->updated_at),
-                'banner' => false
+                'banner' => false,
+                'paginate' => false
             ]);
         }
     }

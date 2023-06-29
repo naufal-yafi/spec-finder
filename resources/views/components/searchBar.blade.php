@@ -28,15 +28,16 @@
 
         <a href="#">
             <button class="btn btn-link" type="submit">
-                <img src="{{ url('assets/icons/search.svg') }}" height="18px" alt="icon search">
+                <img src="{{ url('assets/icons/search.svg') }}" width="18px" height="18px" alt="icon search">
             </button>
         </a>
     </form>
 
     <div class="dropdown">
-        <img class="btn btn-secondary dropdown-toggle bg-transparent border-0"
-            src="{{ url('assets/icons/adjustments.svg') }}" alt="icon filter" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle bg-transparent border-0" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{ url('assets/icons/adjustments.svg') }}" width="21px" height="21px" alt="icon filter">
+        </button>
 
         <ul class="dropdown-menu mt-3" style="transform: translateX(-125px);">
             <li><a class="dropdown-item" href="?sort=ASC">Termurah</a></li>

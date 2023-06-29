@@ -44,72 +44,76 @@
     }
 @endphp
 
-<a href="/{{ $brandSlug }}/{{ $productSlug }}" class="text-decoration-none text-dark">
-    <div class="card" style="width: 18rem;">
-        <div style="font-size: .7rem; color: green;">
-            <img src="{{ url($product->image) }}" class="card-img-top"
-                alt="{{ $brandSlug . '-' . $productSlug . '.specfinder' }}">
-            @if ($conditionPromo)
-                <span class="me-2 fw-bold rounded p-2 position-absolute d-flex justify-content-center align-items-center"
-                    style="background: #d1e7dd; color: #198754; font-size: .8rem; height: 35px; width: 50px; top: 8px; left: 8px;">{{ $productPromo }}%</span>
-            @endif
-        </div>
-
-        <div class="card-body">
-            <p class="card-text mb-2">
-                <img src="{{ url($product->brand->image) }}" height="26px" alt="brand-logo" class="me-1">
-                {{ substr($brandName, 0, 20) . (strlen($brandName) > 20 ? '...' : '') }}
-            </p>
-            <h5 class="card-title">
-                {{ substr($productTitle, 0, 35) . (strlen($productTitle) > 35 ? '...' : '') }}
-                <span class="text-white">
-                    @if (strlen($productTitle) < 35)
-                        @php
-                            $minus = 35 - strlen($productTitle);
-                        @endphp
-                        @times($minus)
-                            .
-                        @endtimes
-                    @endif
-                </span>
-            </h5>
-            <p class="card-text mb-2 d-flex justify-content-start">
+<div>
+    <a href="/{{ $brandSlug }}/{{ $productSlug }}" class="text-decoration-none text-dark">
+        <div class="card" style="width: 18rem;">
+            <div style="font-size: .7rem; color: green;">
+                <img src="{{ url($product->image) }}" class="card-img-top"
+                    alt="{{ $brandSlug . '-' . $productSlug . '.specfinder' }}" width="100%" height="100%">
                 @if ($conditionPromo)
-                    <span class="d-flex flex-column">
-                        <span class="fw-bold text-secondary text-decoration-line-through" style="font-size: .7rem">
-                            <span>Rp.</span>
-                            {{ number_format($productPrice, 0, ',', '.') }}
-                        </span>
+                    <span
+                        class="me-2 fw-bold rounded p-2 position-absolute d-flex justify-content-center align-items-center"
+                        style="background: #d1e7dd; color: #198754; font-size: .8rem; height: 35px; width: 50px; top: 8px; left: 8px;">{{ $productPromo }}%</span>
+                @endif
+            </div>
 
-                        <span class="fw-bold text-success">
-                            <span style="font-size: .7rem;">
-                                Rp
-                            </span>
+            <div class="card-body">
+                <p class="card-text mb-2">
+                    <img src="{{ url($product->brand->image) }}" width="26px" height="26px" alt="brand-logo"
+                        class="me-1">
+                    {{ substr($brandName, 0, 20) . (strlen($brandName) > 20 ? '...' : '') }}
+                </p>
+                <h5 class="card-title">
+                    {{ substr($productTitle, 0, 35) . (strlen($productTitle) > 35 ? '...' : '') }}
+                    <span class="text-white">
+                        @if (strlen($productTitle) < 35)
                             @php
-                                $diskon = $productPrice * ($productPromo / 100);
+                                $minus = 35 - strlen($productTitle);
                             @endphp
-                            <span class="fs-5">
-                                {{ number_format($productPrice - $diskon, 0, ',', '.') }}
-                            </span>
-                        </span>
+                            @times($minus)
+                                .
+                            @endtimes
+                        @endif
                     </span>
-                @else
-                    <span class="d-flex flex-column">
-                        <span class="fw-bold text-success">
-                            <span style="font-size: .7rem;">
-                                Rp
-                            </span>
-                            <span class="fs-5">
+                </h5>
+                <p class="card-text mb-2 d-flex justify-content-start">
+                    @if ($conditionPromo)
+                        <span class="d-flex flex-column">
+                            <span class="fw-bold text-secondary text-decoration-line-through" style="font-size: .7rem">
+                                <span>Rp.</span>
                                 {{ number_format($productPrice, 0, ',', '.') }}
                             </span>
+
+                            <span class="fw-bold text-success">
+                                <span style="font-size: .7rem;">
+                                    Rp
+                                </span>
+                                @php
+                                    $diskon = $productPrice * ($productPromo / 100);
+                                @endphp
+                                <span class="fs-5">
+                                    {{ number_format($productPrice - $diskon, 0, ',', '.') }}
+                                </span>
+                            </span>
                         </span>
-                        <span class="fw-bold text-white text-decoration-line-through" style="font-size: .7rem">
-                            <span>.</span>
-                            .
+                    @else
+                        <span class="d-flex flex-column">
+                            <span class="fw-bold text-success">
+                                <span style="font-size: .7rem;">
+                                    Rp
+                                </span>
+                                <span class="fs-5">
+                                    {{ number_format($productPrice, 0, ',', '.') }}
+                                </span>
+                            </span>
+                            <span class="fw-bold text-white text-decoration-line-through" style="font-size: .7rem">
+                                <span>.</span>
+                                .
+                            </span>
                         </span>
-                    </span>
-                @endif
-            </p>
+                    @endif
+                </p>
+            </div>
         </div>
-    </div>
-</a>
+    </a>
+</div>

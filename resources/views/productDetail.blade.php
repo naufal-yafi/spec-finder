@@ -6,22 +6,22 @@
         $config = [
             'category' => [
                 'title' => 'Rekomendasi ' . $product->category->name,
-                'url' => '/product/category/' . $product->category->slug,
+                'url' => '/search?category=' . $product->category->slug,
                 'index' => 0,
             ],
             'brand' => [
                 'title' => 'Produk Lainnya dari ' . $product->brand->name,
-                'url' => '/product/brand/' . $product->brand->slug,
+                'url' => '/' . $product->brand->slug . '?brand=' . $product->brand->slug,
                 'index' => 1,
             ],
             'author' => [
                 'title' => 'Rekomendasi dari ' . $product->user->username,
-                'url' => '/product/author/' . $product->user->slug,
+                'url' => '/search?author=' . $product->user->slug,
                 'index' => 2,
             ],
             'all' => [
                 'title' => 'Rekomendasi Lainnya',
-                'url' => '/product',
+                'url' => '/',
                 'index' => 'all',
             ],
         ];

@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'empty.search' => \App\Http\Middleware\RedirectIfEmptySearch::class,
+        \App\Http\Middleware\SetAcceptEncoding::class
     ];
 }

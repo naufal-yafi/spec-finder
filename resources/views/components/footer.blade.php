@@ -23,15 +23,18 @@
             <div class="d-flex align-items-center gap-4 gap-md-2 me-2 mb-3 mb-md-0">
                 <a href="https://mail.google.com/mail/u/0/?hl=en#inbox?compose=CllgCJfmrDSLvbDzwSlZXHqnbbfqbXKVfkWMBnxHWvRjvVcmrxzNcqCgVcfSscKfXRJbnqtbdPg"
                     target="_blank">
-                    <img src="{{ url('assets/icons/gmail.svg') }}" alt="icon gmail" class="icon-hover">
+                    <img src="{{ url('assets/icons/gmail.svg') }}" width="24px" height="24px" alt="icon gmail"
+                        class="icon-hover">
                 </a>
 
                 <a href="https://github.com/naufal-yafi/spec-finder" target="_blank">
-                    <img src="{{ url('assets/icons/github.svg') }}" alt="icon github" class="icon-hover">
+                    <img src="{{ url('assets/icons/github.svg') }}" width="24px" height="24px" alt="icon github"
+                        class="icon-hover">
                 </a>
 
-                <a href="" target="_blank">
-                    <img src="{{ url('assets/icons/discord.svg') }}" alt="icon discord" class="icon-hover">
+                <a href="https://discord.gg/cEhhTMcsgE" target="_blank">
+                    <img src="{{ url('assets/icons/discord.svg') }}" width="24px" height="24px" alt="icon discord"
+                        class="icon-hover">
                 </a>
             </div>
             <form action="/search" id="input-container" class="d-flex" role="search" style="width: 300px">
@@ -41,7 +44,7 @@
 
                 <a href="#">
                     <button class="btn btn-link" type="submit">
-                        <img src="{{ url('assets/icons/search.svg') }}" height="18px" alt="icon search">
+                        <img src="{{ url('assets/icons/search.svg') }}" width="18px" height="18px" alt="icon search">
                     </button>
                 </a>
             </form>
@@ -54,10 +57,6 @@
                     <li>
                         <a href="https://github.com/naufal-yafi/spec-finder/wiki" target="_blank"
                             class="text-decoration-none text-success">Tentang Kami</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/naufal-yafi/spec-finder/graphs/contributors" target="_blank"
-                            class="text-decoration-none text-success">Pengembang</a>
                     </li>
                     <li><a href="https://github.com/naufal-yafi/spec-finder/activity" target="_blank"
                             class="text-decoration-none text-success">Aktifitas</a></li>
@@ -107,7 +106,7 @@
                 <h5>Komunitas</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://discord.gg/2e9ubc3y" target="_blank"
+                        <a href="https://discord.gg/cEhhTMcsgE" target="_blank"
                             class="text-decoration-none text-success">Discord</a>
                     </li>
                     <li>

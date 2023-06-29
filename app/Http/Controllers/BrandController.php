@@ -48,7 +48,8 @@ class BrandController extends Controller
             'name' => $brand->name,
             'image' => $brand->image,
             'list' => self::$list,
-            'banner' => true
+            'banner' => true,
+            'paginate' => false
         ]);
     }
 }

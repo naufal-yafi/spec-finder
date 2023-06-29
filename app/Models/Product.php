@@ -33,7 +33,6 @@ class Product extends Model
             fn ($query, $search) => $query->where('title', 'like', '%' . $search . '%')
                 ->orWhere('tags', 'like', '%' . $search . '%')
                 ->orWhere('spesification', 'like', '%' . $search . '%')
-                ->orWhere('description', 'like', '%' . $search . '%')
         );
 
         $query->when(
