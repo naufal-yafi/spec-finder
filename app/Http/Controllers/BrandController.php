@@ -31,7 +31,8 @@ class BrandController extends Controller
             'slug' => false,
             'name' => 'Semua',
             'list' => self::$list,
-            'banner' => true
+            'banner' => true,
+            'search' => true
         ]);
     }
 
@@ -49,7 +50,8 @@ class BrandController extends Controller
             'image' => $brand->image,
             'list' => self::$list,
             'banner' => true,
-            'paginate' => false
+            'paginate' => false,
+            'search' => true
         ]);
     }
 }

@@ -30,7 +30,30 @@ class ProductController extends Controller
             'products' => Product::with($this->table)->search(request(['search', 'tag', 'category', 'brand', 'author']))->inRandomOrder()->paginate(12)->withQueryString(),
             'list' => self::$list,
             'banner' => false,
-            'paginate' => true
+            'paginate' => true,
+            'search' => true
+        ]);
+    }
+
+    public function login()
+    {
+        return view('auth.login', [
+            'title' => 'Masuk Sebagai Pengguna | SpecFinder',
+            'list' => self::$list,
+            'banner' => false,
+            'paginate' => false,
+            'search' => false
+        ]);
+    }
+
+    public function signup()
+    {
+        return view('auth.register', [
+            'title' => 'Daftar Pengguna Baru | SpecFinder',
+            'list' => self::$list,
+            'banner' => false,
+            'paginate' => false,
+            'search' => false
         ]);
     }
 
@@ -57,7 +80,8 @@ class ProductController extends Controller
                 'list' => self::$list,
                 'time' => $this->formatTime($getDataProduct->created_at, $getDataProduct->updated_at),
                 'banner' => false,
-                'paginate' => false
+                'paginate' => false,
+                'search' => true
             ]);
         }
     }

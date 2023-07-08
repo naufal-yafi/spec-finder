@@ -38,7 +38,9 @@
     @include('components.riseUp')
     @include('components.navbar')
 
-    @include('components.searchBar')
+    @if ($search)
+        @include('components.searchBar')
+    @endif
 
     @yield('app')
 

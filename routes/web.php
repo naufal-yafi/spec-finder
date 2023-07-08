@@ -23,12 +23,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/search', [ProductController::class, 'index'])->middleware('empty.search');
+Route::get('/login', [ProductController::class, 'login']);
+Route::get('/signup', [ProductController::class, 'signup']);
 
-Route::get('/login', function () {
-  return view('errors.503');
-});
-
-Route::get('/signup', function () {
+Route::get('/maintenance', function () {
   return view('errors.503');
 });
 
